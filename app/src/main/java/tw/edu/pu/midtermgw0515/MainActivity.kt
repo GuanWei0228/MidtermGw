@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity(){
         setContentView(binding.root)
 
 
-        /*binding.img.setOnClickListener(object:View.OnClickListener{
+        binding.img.setOnClickListener(object:View.OnClickListener{
             override fun onClick(p0: View?) {
                 check = !check
 
@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity(){
                 }
                 delay(25)
             }
-        }*/
+        }
 
         //設定螢幕水平顯示
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
