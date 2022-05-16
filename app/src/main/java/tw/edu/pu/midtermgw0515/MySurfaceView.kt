@@ -12,6 +12,7 @@ class MySurfaceView(context: Context?, attrs: AttributeSet?) : SurfaceView(conte
     lateinit var surfaceHolder: SurfaceHolder
     lateinit var BG: Bitmap
 
+
     init {
         surfaceHolder = getHolder()
         BG = BitmapFactory.decodeResource(getResources(), R.drawable.background)
@@ -26,8 +27,22 @@ class MySurfaceView(context: Context?, attrs: AttributeSet?) : SurfaceView(conte
 
     }
 
+    var BGmoveX:Int = 0
     fun drawSomething(canvas:Canvas) {
-        canvas.drawBitmap(BG, 0f, 0f, null)
+        //canvas.drawBitmap(BG, 0f, 0f, null)
+        //背景往左
+        BGmoveX --
+        var BGnewX:Int = BG.width + BGmoveX
+        // 如果已捲動整張圖，則重新開始
+        if (BGnewX <= 0) {
+            BGmoveX = 0
+            // only need one draw
+            canvas.drawBitmap(BG, BGmoveX.toFloat(), 0f, null)
+        } else {
+            // need to draw original and wrap
+            canvas.drawBitmap(BG, BGmoveX.toFloat(), 0f, null)
+            canvas.drawBitmap(BG, BGnewX.toFloat(), 0f, null)
+        }
     }
 
     override fun surfaceChanged(p0: SurfaceHolder, p1: Int, p2: Int, p3: Int) {

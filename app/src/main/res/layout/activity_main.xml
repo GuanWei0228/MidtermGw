@@ -10,7 +10,7 @@
     <tw.edu.pu.midtermgw0515.MySurfaceView
         android:id="@+id/mysv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         tools:ignore="MissingConstraints" />
 
     <TextView
